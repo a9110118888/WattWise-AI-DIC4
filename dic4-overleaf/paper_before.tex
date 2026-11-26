@@ -1,0 +1,83 @@
+% !TEX program = xelatex
+% 注意：本檔案為 DIC4 刻意設計之「修改前不良示範初稿 (Before Draft)」，
+% 保留 7 項典型論文撰寫錯誤，供審稿代理人進行診斷與重構對照使用。
+% 編譯環境：Overleaf 請將 Compiler 設定為 XeLaTeX。
+
+\documentclass[conference]{IEEEtran}
+
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK TC}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+\usepackage{amsmath,amssymb}
+\usepackage{cite}
+
+\begin{document}
+
+% 錯誤 (3)：標題過於簡陋，僅寫成聊天機器人，未能體現 Domain AI Agent、異常診斷與需量調度之研究定位
+\title{一個智慧用電聊天機器人系統}
+
+\author{
+\IEEEauthorblockN{陳宏郁}
+\IEEEauthorblockA{國立中興大學 電機工程學系\\
+台中市, 台灣}
+}
+
+\maketitle
+
+\begin{abstract}
+% 錯誤 (1)：摘要開頭空泛，只寫人工智慧發展很快，缺乏 2025-2026 具體能源數據與 A-F 六段式結構
+近年來，人工智慧與大語言模型技術發展非常迅速，已經被廣泛應用在各行各業的聊天機器人當中，替人類生活帶來許多便利。隨著科技進步，智慧家庭也越來越普及，許多人都希望能有一個好用的對話系統來幫忙看家裡的用電狀況。
+
+% 錯誤 (2)：嚴重違反「不可虛構實驗數據」規範，在提案階段捏造 98.5% 準確率與省電 50% 的假數據
+因此，本研究開發了一個基於人工智慧的智慧用電聊天機器人系統，讓使用者可以用自然語言詢問電費問題。根據我們已經完成的實際場域實驗結果顯示，本系統在用電異常辨識上達到了 98.5\% 的準確率，並且成功幫助測試家庭平均省下了 50\% 的電費支出，整體效能表現十分優異。
+\end{abstract}
+
+% 錯誤 (3)：刻意遺漏 \begin{IEEEkeywords} ... \end{IEEEkeywords} 區塊
+
+\section{緒論 (Introduction)}
+% 錯誤 (4)：緒論缺乏 2025-2026 客觀能源與台電 TOU 電價數據、缺乏三大痛點拆解（H）、缺乏 SWOT 優劣比較表（J）與 G-L 六維展開結構
+人工智慧在近年來成為全球最熱門的研究領域之一，特別是生成式人工智慧聊天機器人的出現，讓電腦能夠聽懂人類的語言並回答各種問題。在日常生活中，人們每天都會使用電力，如果能把聊天機器人跟電表結合在一起，應該會是一個很有趣而且實用的點子。
+
+過去雖然有一些傳統的能源管理軟體，但那些軟體通常介面比較複雜，一般民眾不太會操作。因此，我們想做一個簡單易用的網頁與對話機器人，只要使用者問「為什麼這個月電費這麼貴」，系統就可以直接給出回答，幫助大家節省能源並減少電費開銷。本論文其餘章節將介紹相關研究、系統設計與實驗結果。
+
+\section{相關研究 (Related Work)}
+% 錯誤 (5)：相關研究全部都在寫人工智慧模型，完全沒有電力工程、TOU 電價或建築熱力學（2R2C / PMV / 契約容量）領域知識
+% 錯誤 (6)：缺少橫向文獻比較表（1/2 AI + 1/2 Domain）與研究缺口收斂分析（Convergence Analysis）
+在人工智慧技術方面，目前已經有許多強大的深度學習模型被提出來。例如，Vaswani 等人提出了 Transformer 架構，透過自注意力機制大幅提升了自然語言處理與序列建模的表現 \cite{vaswani2017}。隨後，大型語言模型如 GPT 系列展現了優秀的文字生成與對話能力，能夠理解使用者的多樣化提問 \cite{brown2020}。
+
+此外，在時間序列分析與特徵提取任務上，許多研究採用卷積神經網路（CNN）與循環神經網路（RNN）來進行資料分類與預測 \cite{lecun2015}。也有學者利用強化學習（Reinforcement Learning）來訓練智慧代理自動做出決策 \cite{schulman2017}，或是使用檢索增強生成（RAG）來減少模型回答錯誤的情況 \cite{lewis2020}。這些人工智慧模型都非常先進，因此本研究決定採用類似的深度學習與對話技術來建置我們的用電聊天機器人。
+
+\section{系統架構 (System Architecture)}
+本系統主要包含三個部分：使用者介面、大語言模型核心以及資料庫。使用者在前端輸入問題後，系統會將問題傳送給大語言模型進行理解，並從資料庫中讀取電表數值，最後由模型生成一段節能建議文字回覆給使用者。整個系統以對話互動為主，未針對電氣安全邊界或物理模型進行額外限制。
+
+\section{實驗結果與評估 (Experimental Results)}
+% 錯誤 (2)：再度於實驗章節虛構未經實測之 98.5% 準確率與省電 50% 假數據，且未說明 REDD/UK-DALE/AMPds2 基準與指標定義
+為了驗證本系統的有效性，我們在實驗室與合作家庭進行了為期數個月的測試。實驗結果表明，本系統的預測與診斷準確率高達 98.5\%，遠超過傳統方法；在節能效益方面，受測用戶的每月平均用電量大幅下降，成功達成省電 50\% 的卓越成果，證明本聊天機器人具備極高的實用價值。
+
+\section{結論 (Conclusion)}
+本研究提出了一個智慧用電聊天機器人，結合了最新的大型語言模型技術，能夠協助使用者查詢用電並節省 50\% 的電費。未來我們將繼續最佳化對話模型，讓系統回答更加流暢自然。
+
+% 錯誤 (7)：參考文獻格式極度不完整（缺乏期刊/會議名稱、年份、卷期頁碼，或僅有簡略作者與標題）
+\begin{thebibliography}{9}
+
+\bibitem{vaswani2017}
+A. Vaswani et al., ``Attention is all you need.''
+
+\bibitem{brown2020}
+T. Brown, ``Language models are few-shot learners,'' 2020.
+
+\bibitem{lecun2015}
+Y. LeCun, Y. Bengio, and G. Hinton, ``Deep learning.''
+
+\bibitem{schulman2017}
+J. Schulman, ``Proximal policy optimization algorithms.''
+
+\bibitem{lewis2020}
+P. Lewis et al., ``Retrieval-augmented generation.''
+
+\end{thebibliography}
+
+\end{document}
+

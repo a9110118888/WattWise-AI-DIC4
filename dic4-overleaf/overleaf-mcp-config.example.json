@@ -1,0 +1,22 @@
+{
+  "_comment": "Overleaf MCP 連線設定範例檔（請複製為實際設定並填入您的個人憑證，切勿將真實 Token 提交至 GitHub）",
+  "mcpServers": {
+    "overleaf": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@overleaf/mcp-server"
+      ],
+      "env": {
+        "OVERLEAF_BASE_URL": "https://www.overleaf.com",
+        "OVERLEAF_PROJECT_ID": "<請填入您的 Overleaf Project ID，例如：6740a1b2c3d4e5f678901234>",
+        "OVERLEAF_API_TOKEN": "<請填入您的 Overleaf API Token 或 Session Cookie>",
+        "OVERLEAF_MAIN_TEX": "main.tex",
+        "OVERLEAF_COMPILER": "pdflatex",
+        "OVERLEAF_OUTPUT_DIR": "./dic4-overleaf/output"
+      },
+      "disabled": false
+    }
+  }
+}
+

@@ -1,4 +1,20 @@
 # WattWise AI — 智慧住宅與校園空間用電異常診斷暨需量調度 Domain AI Agent
+
+## 📌 DIC4 作業交付總覽 (IEEE 會議論文與 Overleaf 審稿重構)
+
+| 交付類別 | 項目名稱 | 檔案說明 | 直接連結 |
+| :--- | :--- | :--- | :--- |
+| **編譯成品 PDF** | 修改前初稿 PDF | Overleaf XeLaTeX 編譯之不良示範初稿（保留 7 項典型錯誤） | [DIC4_Before_Bad.pdf](dic4-overleaf/DIC4_Before_Bad.pdf) |
+| **編譯成品 PDF** | 修改後完稿 PDF | 經審稿代理人診斷並依 DIC3 規格重構之 IEEE 會議論文完稿 | [DIC4_After_Good.pdf](dic4-overleaf/DIC4_After_Good.pdf) |
+| **LaTeX 原始碼** | 修改前初稿原始碼 | IEEEtran 雙欄格式 + xeCJK（故意保留 7 項審稿錯誤之對照版） | [paper_before.tex](dic4-overleaf/paper_before.tex) |
+| **LaTeX 原始碼** | 修改後完稿原始碼 | 完整修正 7 項錯誤、嚴守不虛構數據與 90% 安全守門規範之完稿 | [paper_after.tex](dic4-overleaf/paper_after.tex) |
+| **審稿診斷報告** | 錯誤診斷對照報告 | 逐項條列 `E-01` 至 `E-07` 錯誤診斷、違規規範與修正方案 | [Audit_Error_Report.md](dic4-overleaf/Audit_Error_Report.md) |
+| **OpenSpec 規格** | DIC4 目標規格書 | 定義 DIC4 論文轉譯、雙版本 PDF 與 OpenSpec 上傳目標 | [goal.md](openspec/changes/dic4-ieee-overleaf/goal.md) |
+| **OpenSpec 規格** | DIC4 系統與審稿設計 | 含端到端 Mermaid 流程圖與四大核心審稿規則 | [design.md](openspec/changes/dic4-ieee-overleaf/design.md) |
+| **OpenSpec 規格** | DIC4 實作檢核清單 | 條列 Phase 1 至 Phase 4 完整實作與驗收任務（全數勾選） | [task.md](openspec/changes/dic4-ieee-overleaf/task.md) |
+
+---
+
 ## 期末專題完整成果報告書 (Comprehensive Project Proposal & Engineering Specification)
 
 [![OpenSpec Validated](https://img.shields.io/badge/OpenSpec-Validated-10b981.svg?style=flat-square)](https://github.com/openspec/openspec)
@@ -332,7 +348,7 @@ flowchart TD
     ConfJudge -- "否 (< 0.80)" --> ClarifyLoop[Clarification Loop: 主動追問使用者補充參數]
     ClarifyLoop --> Step1
 
-    ConfJudge -- "是 (>= 0.80)" --> SafetyCheck{"用電安全守門員:<br/>是否超過 80% 斷路器容量?"}
+    ConfJudge -- "是 (>= 0.80)" --> SafetyCheck{"用電安全守門員:<br/>是否超過 90% 契約容量臨界值?"}
 
     SafetyCheck -- "警告: 過載風險" --> Fallback[安全降級: 拒絕排程並建議分段開啟]
     SafetyCheck -- 通過 --> GeneratePlan[生成時間電價最佳化排程與節能報告]

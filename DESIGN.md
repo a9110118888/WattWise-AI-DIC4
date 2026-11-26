@@ -103,7 +103,7 @@ flowchart TD
     ConfJudge -- "否 (< 0.80)" --> ClarifyLoop[Clarification Loop: 主動追問使用者補充參數]
     ClarifyLoop --> Step1
 
-    ConfJudge -- "是 (>= 0.80)" --> SafetyCheck{"用電安全守門員:<br/>是否超過 80% 斷路器容量?"}
+    ConfJudge -- "是 (>= 0.80)" --> SafetyCheck{"用電安全守門員:<br/>是否超過 90% 契約容量臨界值?"}
 
     SafetyCheck -- "警告: 過載風險" --> Fallback[安全降級: 拒絕排程並建議分段開啟]
     SafetyCheck -- 通過 --> GeneratePlan[生成時間電價最佳化排程與節能報告]
